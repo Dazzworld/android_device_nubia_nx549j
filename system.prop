@@ -37,6 +37,8 @@ ro.ct.device.model=XMP-2016060
 
 persist.nfc.smartcard.config=SIM1,SIM2,eSE1
 
+ro.sf.lcd_density=480
+
 debug.sf.hw=0
 debug.egl.hw=0
 persist.hwc.mdpcomp.enable=true

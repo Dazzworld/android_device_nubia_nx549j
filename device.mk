@@ -83,14 +83,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio_policy.msm8996 \
-    audio.primary.msm8996 \
+    audio.primary.msm8953 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
+    libaudioroute \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle \
+    libvolumelistener \
+    libtinycompress \
     tinymix
 
 # Audio configuration
@@ -140,6 +142,11 @@ PRODUCT_PACKAGES += \
     memtrack.msm8953 \
     libtinyxml
 
+#Lib Shims
+PRODUCT_PACKAGES += \
+    libshims_ims \
+    libc_shim
+
 # DPM
 PRODUCT_BOOT_JARS += \
     com.qti.dpmframework \
@@ -150,6 +157,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+
+# For android_filesystem_config.h
+PRODUCT_PACKAGES += \
+    fs_config_files
 
 # GPS
 PRODUCT_PACKAGES += \

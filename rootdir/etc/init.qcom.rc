@@ -35,6 +35,8 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    export LD_SHIM_LIBS "/system/bin/mm-qcamera-daemon|libc_shim.so"
+
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
@@ -752,7 +754,6 @@ service port-bridge /system/bin/port-bridge
     class main
     user radio system
     group radio system inet
-    disabled
     oneshot
 
 service qmiproxy /system/bin/qmiproxy
@@ -766,36 +767,30 @@ service qmuxd /system/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc qcom_diag
-    disabled
 
 service netmgrd /system/bin/netmgrd
     class main
-    disabled
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
     user system
     socket ipacm_log_file dgram 660 system net_admin
     group net_admin qcom_diag
-    disabled
 
 service ipacm /system/bin/ipacm
     class main
     user net_admin
     group net_admin inet
-    disabled
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw qcom_diag usb net_admin
-    disabled
 
 service sensors /system/bin/sensors.qcom
     class core
     user root
     group root
-    disabled
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -1055,15 +1050,6 @@ service ril-daemon2 /system/bin/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
-
-service ril-daemon3 /system/bin/rild -c 3
-    class main
-    socket rild3 stream 660 root radio
-    socket rild-debug3 stream 660 radio system
-    user root
-    disabled
     group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
 
 service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
@@ -1183,35 +1169,6 @@ service wfdservice /system/bin/wfdservice
     #disabled
     #oneshot
 
-#on property:sys.wfdservice=enable
-#    start wfdservice
-
-#on property:sys.wfdservice=disable
-#    stop wfdservice
-
-service RIDL /system/vendor/bin/RIDLClient.exe
-    class late_start
-    oneshot
-    user system
-    group system inet log sdcard_r sdcard_rw qcom_diag
-    # removed for security team - misc bluetooth radio gps wifi diag media_rw
-    # limited to 12 groups.  Unused: audio usb net_bt_admin net_bt_stac net_raw net_admin
-
-# service for USERDEBUG
-service LKCore-dbg /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user root
-    group root system log qcom_diag
-
-# service for USER
-service LKCore-rel /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user system
-    group system log qcom_diag
 
 # Coresight early boot service
 service cs-early-boot /system/bin/sh /persist/coresight/qdss.agent.sh early-boot /system/etc/init.qcom.debug.sh
