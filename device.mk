@@ -140,6 +140,7 @@ PRODUCT_PACKAGES += \
     copybit.msm8953 \
     hwcomposer.msm8953 \
     memtrack.msm8953 \
+    liboverlay \
     libtinyxml
 
 #Lib Shims
@@ -164,7 +165,9 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8953
+    gps.msm8953 \
+    libcurl \
+    libgnsspps
 
 PRODUCT_BOOT_JARS += \
     com.qti.location.sdk
@@ -236,6 +239,7 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
     libOmxVidcCommon \
