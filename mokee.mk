@@ -16,10 +16,13 @@
 
 $(call inherit-product, device/nubia/nx549j/full_nx549j.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Mokee stuff.
+$(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_nx549j
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mk.maintainer=chenzc
+
+PRODUCT_NAME := mk_nx549j
 BOARD_VENDOR := nubia
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
