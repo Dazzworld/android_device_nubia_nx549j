@@ -1,15 +1,15 @@
 [
  {
-   "repository": "android_device_oppo_common",
-   "target_path": "device/oppo/common"
- },
- {
    "repository": "android_device_qcom_common",
    "target_path": "device/qcom/common"
  },
  {
-    "repository": "android_packages_apps_FlipFlap",
-    "target_path": "packages/apps/FlipFlap"
+   "repository": "android_vendor_nubia_nx549j",
+   "target_path": "vendor/nubia/nx549j"
+ },
+ {
+   "repository": "android_kernel_nubia_msm8953",
+   "target_path": "kernel/nubia/msm8953"
  },
  {
    "repository": "android_packages_resources_devicesettings",
