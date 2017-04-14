@@ -27,7 +27,6 @@
 #
 #
 
-import init.project.rc
 on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
@@ -103,11 +102,6 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
-
-#service aostlmd /system/bin/aostlmd
-#   class late_start
-#   user system
-#   group system net_raw
 
 service perfd /system/vendor/bin/perfd
    class main
@@ -320,5 +314,3 @@ on property:persist.sys.image.cabc=h
     write /sys/kernel/lcd_enhance/cabc 26
 #LCD display preference end
 
-#cmx added
-import init.cmx.rc
