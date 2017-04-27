@@ -186,7 +186,7 @@ on enable-low-power
     setprop sys.post_boot.parsed 1
 
     # Starting io prefetcher service
-    start iop
+    #start iop
 
 on charger
     # Disable thermal
