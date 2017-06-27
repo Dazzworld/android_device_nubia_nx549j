@@ -169,7 +169,9 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    libcurl
+    gps.msm8953 \ 
+    libcurl \ 
+    libgnsspps
 
 PRODUCT_BOOT_JARS += \
     com.qti.location.sdk
