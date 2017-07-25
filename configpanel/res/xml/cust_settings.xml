@@ -17,6 +17,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
+        android:key="touchscreen_palm_sleep"
+        android:title="@string/touchscreen_palm_sleep_title"
+        android:summary="@string/touchscreen_palm_sleep_summary" />
+
+    <SwitchPreference
         android:key="nubia_btn_light"
         android:title="@string/button_nblight_title"
         android:summary="@string/button_nblight_summary" />
